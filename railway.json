@@ -1,0 +1,22 @@
+{
+  "$schema": "https://railway.app/railway.schema.json",
+  "build": {
+    "builder": "dockerfile",
+    "dockerfilePath": "backend/Dockerfile"
+  },
+  "deploy": {
+    "startCommand": "npm run migrate && npm start",
+    "restartPolicyMaxRetries": 5,
+    "restartPolicyWindowSeconds": 60
+  },
+  "env": {
+    "NODE_ENV": "production",
+    "PORT": 5000,
+    "LOG_LEVEL": "info",
+    "ENABLE_EIA_MONITOR": true,
+    "ENABLE_USDA_MONITOR": true,
+    "ENABLE_COT_ANALYSIS": true,
+    "ENABLE_NEWS_AGGREGATION": true,
+    "ENABLE_RADIO_STREAMING": true
+  }
+}
